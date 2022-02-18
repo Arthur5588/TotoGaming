@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Default suite">
+
+    <test thread-count="1" verbose="2" name="Log in with correct cre">
+        <classes>
+            <class name="com.web365.login.TotoGamingLoginTest">
+                <methods>
+                    <include name="LoginWithCorrectCre"></include>
+                    <exclude name="LoginOnlyWithEmail"></exclude>
+                </methods>
+            </class>
+
+            <class name="com.web365.login.TotoGamingLoginTest">
+                <methods>
+                    <include name="LoginOnlyWithEmail"></include>
+                    <exclude name="LoginWithCorrectCre"></exclude>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+</suite>
