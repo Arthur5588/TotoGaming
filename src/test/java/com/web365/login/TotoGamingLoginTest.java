@@ -1,8 +1,7 @@
 package com.web365.login;
 
 import com.web365.base.TotoGamingBaseTest;
-import com.web365.totogaming.page.home.TotogamingHomePage;
-import org.openqa.selenium.By;
+import com.web365.totogaming.page.home.TotoGamingHomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,7 +13,7 @@ public class TotoGamingLoginTest  extends TotoGamingBaseTest {
 
     @Test
     public void LoginWithCorrectCre() throws InterruptedException {
-        TotogamingHomePage homePage = new TotogamingHomePage(this.driver);
+        TotoGamingHomePage homePage = new TotoGamingHomePage(this.driver);
         homePage.loginIconClick();
         Thread.sleep(2000);
         homePage.emailFill(ACCOUNT_USERNAME);
@@ -30,7 +29,7 @@ public class TotoGamingLoginTest  extends TotoGamingBaseTest {
 
     @Test
     public void LoginOnlyWithEmail() throws InterruptedException {
-        TotogamingHomePage homePage = new TotogamingHomePage(this.driver);
+        TotoGamingHomePage homePage = new TotoGamingHomePage(this.driver);
         homePage.loginIconClick();
         Thread.sleep(2000);
         homePage.emailFill(ACCOUNT_USERNAME);

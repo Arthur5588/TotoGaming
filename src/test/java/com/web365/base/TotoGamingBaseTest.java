@@ -8,21 +8,19 @@ import org.testng.annotations.*;
 public class TotoGamingBaseTest {
 
 
-    public static final String URL = "https://www.totogaming.am/en/";
+    public static final String URL = "https://totogaming.com/Sport";
 
     protected WebDriver driver;
 
     @BeforeClass
-    public void openTotoGaming() {
+    public void openTotoGaming() throws InterruptedException {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        //driver.manage().deleteAllCookies();
         driver.get(URL);
+        Thread.sleep(2000);
     }
 
-    @AfterMethod
-    public void reloadTotoGaming(){
-        driver.get(URL);
-    }
 
 
     @AfterClass

@@ -1,18 +1,16 @@
 package com.web365.totogaming.page.home;
 
 import com.web365.totogaming.page.base.TotoGamingBasePage;
-import org.asynchttpclient.netty.EagerResponseBodyPart;
-import org.openqa.selenium.By;
+import com.web365.totogaming.page.sport.TotoGamingSportsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 import static com.web365.totogaming.page.home.TotoGamingHomePageConstants.*;
 
-public class TotogamingHomePage extends TotoGamingBasePage {
+public class TotoGamingHomePage extends TotoGamingBasePage {
 
-    public TotogamingHomePage(WebDriver driver) {
+    public TotoGamingHomePage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
@@ -62,14 +60,22 @@ public class TotogamingHomePage extends TotoGamingBasePage {
     @FindBy(xpath = RED_LINE_SIGNIN_XPATH)
     public WebElement redLineLogin;
 
-    public TotogamingHomePage loginIconClick() {
-        login.click();
-        return new TotogamingHomePage(this.driver);
+    @FindBy(xpath = SPORTS_BUTTON_XPATH)
+    public WebElement sportsButton;
+
+    public TotoGamingSportsPage goSportsPage(){
+        sportsButton.click();
+        return new TotoGamingSportsPage(this.driver);
     }
 
-    public TotogamingHomePage registerClick() {
+    public TotoGamingHomePage loginIconClick() {
+        login.click();
+        return new TotoGamingHomePage(this.driver);
+    }
+
+    public TotoGamingHomePage registerClick() {
         register.click();
-        return new TotogamingHomePage(this.driver);
+        return new TotoGamingHomePage(this.driver);
     }
 
     public void emailFill(String email){
@@ -79,9 +85,9 @@ public class TotogamingHomePage extends TotoGamingBasePage {
         passwordField.sendKeys(pass);
     }
 
-    public TotogamingHomePage loginButtonClick(){
+    public TotoGamingHomePage loginButtonClick(){
         loginButton.click();
-        return new TotogamingHomePage(this.driver);
+        return new TotoGamingHomePage(this.driver);
     }
 
     public void addClick(){

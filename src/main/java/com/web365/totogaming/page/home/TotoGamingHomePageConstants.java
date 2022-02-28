@@ -16,7 +16,8 @@ public class TotoGamingHomePageConstants {
     public static final String LOGIN_BUTTON_XPATH = "//button[@automation='login_button']";
     public static final String USER_XPATH = "//span[@class='user-name']";
     public static final String ADD_XPATH = "//div[@id='after_login_close']";
-    public static final String RED_LINE_SIGNIN_XPATH ="//div[@class='reg_error_message']";
+    public static final String RED_LINE_SIGNIN_XPATH = "//div[@class='reg_error_message']";
+    public static final String SPORTS_BUTTON_XPATH = "//a[@href='/Sport']";
 
 
 }
