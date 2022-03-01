@@ -5,14 +5,21 @@ import com.web365.totogaming.page.sport.TotoGamingSportsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class TotoGamingSportsPageSearchTest extends TotoGamingBaseTest {
+    private TotoGamingSportsPage sportsPage;
+
+    @BeforeClass
+    public void moveToFrame(){
+        sportsPage = new TotoGamingSportsPage(this.driver);
+        driver.switchTo().frame(sportsPage.frame);
+    }
 
     @Test
     public void verifySearchWorksByFootballTeamName() throws InterruptedException {
-        TotoGamingSportsPage sportsPage = new TotoGamingSportsPage(this.driver);
-        //driver.switchTo().frame(sportsPage.frame);
         //sportsPage = sportsPage.goSportsPage();
         sportsPage.searchField.click();
         sportsPage.searchField.sendKeys("Real Madrid");
@@ -25,12 +32,11 @@ public class TotoGamingSportsPageSearchTest extends TotoGamingBaseTest {
     @Test
     public void verifySearchWorksTennisPlayerName() throws InterruptedException {
         TotoGamingSportsPage sportsPage = new TotoGamingSportsPage(this.driver);
-        //driver.switchTo().frame(sportsPage.frame);
         //sportsPage = sportsPage.goSportsPage();
         sportsPage.searchField.click();
         sportsPage.searchField.sendKeys("Karen Khachanov");
         sportsPage.searchIconButton.click();
-        Thread.sleep(1500);
+        Thread.sleep(3000);
         sportsPage.searchField.clear();
         Assert.assertTrue(sportsPage.tennisPlayerSearchResult.isDisplayed());
     }
@@ -38,12 +44,11 @@ public class TotoGamingSportsPageSearchTest extends TotoGamingBaseTest {
     @Test
     public void verifySearchWorksBasketballTeamName() throws InterruptedException {
         TotoGamingSportsPage sportsPage = new TotoGamingSportsPage(this.driver);
-        driver.switchTo().frame(sportsPage.frame);
         //sportsPage = sportsPage.goSportsPage();
         sportsPage.searchField.click();
         sportsPage.searchField.sendKeys("Brooklyn Nets");
         sportsPage.searchIconButton.click();
-        Thread.sleep(1500);
+        Thread.sleep(3000);
         sportsPage.searchField.clear();
         Assert.assertTrue(sportsPage.basketballSearchResult.isDisplayed());
     }
@@ -51,12 +56,11 @@ public class TotoGamingSportsPageSearchTest extends TotoGamingBaseTest {
     @Test
     public void verifySearchWorksByCountryName() throws InterruptedException {
         TotoGamingSportsPage sportsPage = new TotoGamingSportsPage(this.driver);
-        //driver.switchTo().frame(sportsPage.frame);
         //sportsPage = sportsPage.goSportsPage();
         sportsPage.searchField.click();
         sportsPage.searchField.sendKeys("Spain");
         sportsPage.searchIconButton.click();
-        Thread.sleep(1500);
+        Thread.sleep(3000);
         sportsPage.searchField.clear();
         Assert.assertTrue(sportsPage.countryResultLeagues.isDisplayed());
     }
